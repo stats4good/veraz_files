@@ -1,7 +1,7 @@
-limpeza_Transf <- function(path_wd, file)
+limpeza_Transf <- function(file)
 {
-  setwd(path_wd)
-  file <- paste(path_wd, file, sep = "")
+  # setwd(path_wd)
+  # file <- paste(path_wd, file, sep = "")
   
   a <- readLines(file, skipNul = TRUE)
   

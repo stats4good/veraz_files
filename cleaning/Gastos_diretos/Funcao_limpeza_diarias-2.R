@@ -1,6 +1,7 @@
+if (!require("data.table")) install.packages("data.table")
+if (!require("dplyr")) install.packages("dplyr")
+
 read_gd_diarias <- function(dir, file_name) {
-  library(data.table)
-  library(dplyr)
   
   file_new_name = "tmp.csv"
   path1 = paste(dir, file_name, sep="")
@@ -41,8 +42,4 @@ read_gd_diarias <- function(dir, file_name) {
   return(table_data)
 }
 
-#######################################################################
 
-file_name = '201703_Diarias.csv'
-dir <- "~/Downloads/s4g/limpeza_diarias/"
-dados = read_gd_diarias(dir, file_name)

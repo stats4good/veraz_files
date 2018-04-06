@@ -1,9 +1,6 @@
 if (!require("data.table")) install.packages("data.table")
 if (!require("dplyr")) install.packages("dplyr")
 
-dir <- 'G:/Stats4Good/ETL/'
-file_name<- '201704_CPGFComprasCentralizadas.csv'
-
 read_CPFG_Compras <- function (dir , file_name)
 {
   
@@ -79,4 +76,3 @@ read_CPFG_Compras <- function (dir , file_name)
   
 }
 
-table_data <- read_CPFG_Compras(dir, file_name)

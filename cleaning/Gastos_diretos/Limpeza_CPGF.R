@@ -1,8 +1,9 @@
+if (!require("data.table")) install.packages("data.table")
+if (!require("dplyr")) install.packages("dplyr")
+
 read_gd_CPGF <- function (dir, file_name)
   
 { 
-  require(data.table)
-  require(dplyr)
   
   path <- paste(dir, file_name, sep="")
   
@@ -37,10 +38,3 @@ read_gd_CPGF <- function (dir, file_name)
   
   return(table_data)
 }
-
-
-dir <- 'C:/Users/Ana Julia/Documents/Stats4Good/ETL_CPGF/'
-
-file_name <- '201703_CPGF.csv'
-
-read_gd_CPGF(dir, file_name)

@@ -1,8 +1,6 @@
-library(data.table)
-library(dplyr)
+if (!require("data.table")) install.packages("data.table")
+if (!require("dplyr")) install.packages("dplyr")
 
-dir <- '/home/est/Downloads/data_portal_trans/Despesas/GastosDiretos/GastosDiretos/2017'
-file<- '201701_GastosDiretos.csv'
 
 read_gd_pag <- function (dir , file)
 {
@@ -64,6 +62,4 @@ read_gd_pag <- function (dir , file)
   return(dados)
   
 }
-
-dados <- read_gd_pag(dir , file)
 

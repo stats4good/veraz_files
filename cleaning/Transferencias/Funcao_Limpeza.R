@@ -7,6 +7,10 @@ limpeza_Transf <- function(file)
   
   verificacao <- stringr::str_count(string = a, pattern = "\t")
   
+  
+  tempcsv <- tempfile(pattern = '', fileext = '.csv')
+  
+  
   if(length(table(verificacao)) > 1)
   {
     verificacao <- stringr::str_count(string = a, pattern = "\t")
@@ -16,15 +20,15 @@ limpeza_Transf <- function(file)
     a_incompleto <- a[verificacao == 17]
     a <- c(a_incompleto, linha_corrigida)
     
-    write(x = a, file = "Copy.csv")
+    write(x = a, file = tempcsv)
   }
   
   else
   {
-    write(x = a, file = "Copy.csv") 
+    write(x = a, file = tempcsv) 
   }
   
-  dados <- suppressWarnings(data.table::fread("Copy.csv", dec = ",", encoding = "Latin-1"))
+  dados <- suppressWarnings(data.table::fread(tempcsv, dec = ",", encoding = "Latin-1"))
   
   names(dados)  <- iconv(names(dados), from = "latin1")
   
@@ -47,6 +51,8 @@ limpeza_Transf <- function(file)
   }
   
   dados$`Valor Parcela` <- as.numeric(gsub(x = dados$`Valor Parcela`, ",", ""))
+  
+  unlink(tempcsv)
   
   return(dados)
   

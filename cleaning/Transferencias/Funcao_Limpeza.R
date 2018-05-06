@@ -37,7 +37,7 @@ limpeza_Transf <- function(file)
   dados <- as.data.frame(dados2)
   
   
-  ano_data <- strsplit(file,split = '_')
+  ano_data <- strsplit(basename(file),split = '_')
   ano_data <- as.numeric(strsplit(ano_data[[1]][1], "(?<=.{4})", perl = TRUE)[[1]])
   dados$Mes <- ano_data[2]
   dados$Ano <- ano_data[1]
